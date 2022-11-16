@@ -1,0 +1,16 @@
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &__image {
+        width: 100%;
+        height: 30vh;
+    }
+    &__rest {
+        width: 100%;
+        height: 70vh;
+        background-color: $dark_veryDarkDesaturatedBlue;
+    }
+}
