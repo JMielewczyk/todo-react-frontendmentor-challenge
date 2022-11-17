@@ -3,6 +3,7 @@
 .App {
     display: flex;
     width: 100vw;
+    max-width: 800px;
     height: 100vh;
     padding: 20px;
     flex-direction: column;
@@ -20,9 +21,14 @@
         border: none;
         border-radius: $br-standard;border-radius: $br-standard;
         padding: 20px;
-        font-size: 14px;
+        font-size: 16px;
         background-color: $dark_veryDarkDesaturatedBlue;
         color: $dark_brightGrayishBlue;
+        transition: .3s;
+        &.light {
+            color: $light-very-dark-grayish-blue;
+            background-color: $light-very-light-gray;
+        }
     }
 }
 
@@ -37,12 +43,23 @@
     background-color: $dark_veryDarkDesaturatedBlue;
     height: $standard-item-height;
     border-radius: $br-standard;
+    transition: .3s;
+    &.light {
+        background-color: $light-very-light-gray;
+    }
     a {
         color: $dark_grayishBlue;
         text-decoration: none;
+        font-weight: 700;
         &.active {
             color: $bright-blue;
-        }
+        }    
+    }
+    &.light a {
+        color: $light-very-dark-grayish-blue;
+        &.active {
+                color: $bright-blue;
+            }
     }
 }
 

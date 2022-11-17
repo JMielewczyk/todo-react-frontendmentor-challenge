@@ -6,7 +6,10 @@
     height: 60vh;
     background-color: $dark_veryDarkDesaturatedBlue;
     border-radius: $br-standard;
-
+    transition: .3s;
+    &.light {
+        background-color: $light-very-light-gray;
+    }
     &__tasks-wrapper {
         width: 100%;
         height: calc(100% - $standard-item-height);
@@ -24,14 +27,27 @@
         height: $standard-item-height;
         border-top: 1px solid $dark_veryDarkGrayishBlue;
         color: $dark_grayishBlue;
+        p.clearCompleted {
+            cursor: pointer;
+        }
+        p.clearCompleted:active {
+            color: $bright-blue;
+        }
+        &.light p {
+            color: $light-very-dark-grayish-blue;
+        }
     }
     &__task {
         display: flex;
         width: 100%;
         justify-content: space-between;
+        align-items: center;
         padding: 10px;
         border-bottom: 1px solid $dark_veryDarkGrayishBlue;
         color: $dark_brightGrayishBlue;
+        &.light {
+            border-color: $light-dark-grayish-blue;
+        }
     }
     &__task-checkbox {
         display: flex;
@@ -41,14 +57,27 @@
         height: 25px;
         border: 1px solid $dark_veryDarkGrayishBlue;
         border-radius: 50%;
+        cursor: pointer;
         &.isDone {
             background: $check-background;
         }
+        &.light {
+            border-color: $light-dark-grayish-blue;
+        }    
     }
     &__task-text {
         &.isDone {
             color: $dark_grayishBlue;
            text-decoration: line-through;
+           &.light{
+            color: $light-light-grayish-blue;
+           }
+        }
+        &.light {
+            color: $light-very-dark-grayish-blue;
         }
     } 
+    &__task-cross {
+        cursor: pointer;
+    }
 }

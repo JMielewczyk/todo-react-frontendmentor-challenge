@@ -11,9 +11,16 @@ import SectionTasks from "./Layouts/SectionTasks";
 
 import "./Styles/App.scss";
 
+export const ThemeContext = React.createContext();
+
 function App() {
   const [tasks, setTasks] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [theme, setTheme] = useState("light");
+
+  const handleTheme = () => {
+    theme === "dark" ? setTheme("light") : setTheme("dark");
+  };
 
   const handleAddTask = (e) => {
     e.preventDefault();
@@ -51,35 +58,41 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <Background />
-        <Header />
-        <div className="input-wrapper">
-          <form onSubmit={handleAddTask}>
-            <input
-              className="input-wrapper__input"
-              type="text"
-              placeholder="Create a new todo..."
-              value={inputValue}
-              onChange={(e) => {
-                setInputValue(e.target.value);
-              }}
-            />
-          </form>
+      <ThemeContext.Provider value={theme}>
+        <div className="App">
+          <Background />
+          <Header handleTheme={handleTheme} />
+          <div className="input-wrapper">
+            <form onSubmit={handleAddTask}>
+              <input
+                className={
+                  theme === "dark"
+                    ? "input-wrapper__input"
+                    : "input-wrapper__input light"
+                }
+                type="text"
+                placeholder="Create a new todo..."
+                value={inputValue}
+                onChange={(e) => {
+                  setInputValue(e.target.value);
+                }}
+              />
+            </form>
+          </div>
+          <SectionTasks
+            tasks={tasks}
+            toggleCheckbox={toggleIsDoneTask}
+            deleteTask={deleteTask}
+            tasksLength={tasks.length}
+            clearCompleted={clearCompleted}
+          />
+          <div className={theme === "dark" ? "options" : "options light"}>
+            <NavLink to="/">All</NavLink>
+            <NavLink to="ActiveTasks">Active</NavLink>
+            <NavLink to="CompletedTasks">Completed</NavLink>
+          </div>
         </div>
-        <SectionTasks
-          tasks={tasks}
-          toggleCheckbox={toggleIsDoneTask}
-          deleteTask={deleteTask}
-          tasksLength={tasks.length}
-          clearCompleted={clearCompleted}
-        />
-        <div className="options">
-          <NavLink to="/">All</NavLink>
-          <NavLink to="ActiveTasks">Active</NavLink>
-          <NavLink to="CompletedTasks">Completed</NavLink>
-        </div>
-      </div>
+      </ThemeContext.Provider>
     </Router>
   );
 }

@@ -4,6 +4,31 @@
     height: 40px;
     justify-content: space-between;
     align-items: center;
+    &__theme-switch {
+        display: flex;
+        justify-content: center;
+        overflow-x: hidden;
+        cursor: pointer;
+    }
+    .moon {
+        transition: .3s;
+        transform: translateX(-110%);
+        opacity: 0;
+        &.light {
+            transform: translateX(50%);
+            opacity: 100%;
+        }
+    }
+
+    .sun {
+        transition: .3s;
+        transform: translateX(-50%);
+        opacity: 100%;
+        &.light {
+            transform: translateX(110%);
+            opacity: 0;
+        }
+    }
     &__logo {
         color: white;
         letter-spacing: 6px;
