@@ -1,0 +1,54 @@
+@import 'variables';
+
+.section-tasks {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-color: $dark_veryDarkDesaturatedBlue;
+    border-radius: $br-standard;
+
+    &__tasks-wrapper {
+        width: 100%;
+        height: calc(100% - $standard-item-height);
+        overflow-y: scroll;
+    }
+
+    &__tasks-info {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: $standard-item-height;
+        border-top: 1px solid $dark_veryDarkGrayishBlue;
+        color: $dark_grayishBlue;
+    }
+    &__task {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid $dark_veryDarkGrayishBlue;
+        color: $dark_brightGrayishBlue;
+    }
+    &__task-checkbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25px;
+        height: 25px;
+        border: 1px solid $dark_veryDarkGrayishBlue;
+        border-radius: 50%;
+        &.isDone {
+            background: $check-background;
+        }
+    }
+    &__task-text {
+        &.isDone {
+            color: $dark_grayishBlue;
+           text-decoration: line-through;
+        }
+    } 
+}

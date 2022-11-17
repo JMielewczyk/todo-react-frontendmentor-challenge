@@ -22,28 +22,11 @@
         padding: 20px;
         font-size: 14px;
         background-color: $dark_veryDarkDesaturatedBlue;
+        color: $dark_brightGrayishBlue;
     }
 }
 
-.tasks-wrapper {
-    position: relative;
-    width: 100%;
-    height: 60vh;
-    background-color: $dark_veryDarkDesaturatedBlue;
-    border-radius: $br-standard;
-    &__tasks-info {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: $standard-item-height;
-            border-top: 1px solid $dark_veryDarkGrayishBlue;
-            color: $dark_grayishBlue;
-        }
-}
+
 
 .options {
     width: 100%;
