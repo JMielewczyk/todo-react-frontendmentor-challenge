@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/todo-react-frontendmentor-challenge/static/css/main.1c84f466.css",
+    "main.js": "/todo-react-frontendmentor-challenge/static/js/main.dd990c8c.js",
+    "index.html": "/todo-react-frontendmentor-challenge/index.html",
+    "main.1c84f466.css.map": "/todo-react-frontendmentor-challenge/static/css/main.1c84f466.css.map",
+    "main.dd990c8c.js.map": "/todo-react-frontendmentor-challenge/static/js/main.dd990c8c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1c84f466.css",
+    "static/js/main.dd990c8c.js"
+  ]
+}
