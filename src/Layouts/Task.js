@@ -4,8 +4,11 @@ import { ThemeContext } from "../App";
 
 import "../Styles/SectionTasks.scss";
 
+import iconCheckbox from "../Images/icon-check.svg"
+import iconCross from "../Images/icon-cross.svg"
+
 const Task = ({ id, text, isDone, toggleCheckbox, deleteTask }) => {
-  const taskDone = isDone ? <img src="./images/icon-check.svg" alt="" /> : null;
+  const taskDone = isDone ? <img src={iconCheckbox} alt="" /> : null;
   const theme = useContext(ThemeContext)
   const checkboxClass = isDone
     ? `section-tasks__task-checkbox isDone ${theme === 'dark' ? null : 'light'}`
@@ -25,7 +28,7 @@ const Task = ({ id, text, isDone, toggleCheckbox, deleteTask }) => {
         {text}
       </p>
       <div className="section-tasks__task-cross" onClick={() => deleteTask(id)}>
-        <img src="./images/icon-cross.svg" alt=""></img>
+        <img src={iconCross} alt=""></img>
       </div>
     </div>
   );

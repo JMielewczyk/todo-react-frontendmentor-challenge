@@ -87,7 +87,7 @@ function App() {
             clearCompleted={clearCompleted}
           />
           <div className={theme === "dark" ? "options" : "options light"}>
-            <NavLink to="/">All</NavLink>
+            <NavLink to="/All">All</NavLink>
             <NavLink to="ActiveTasks">Active</NavLink>
             <NavLink to="CompletedTasks">Completed</NavLink>
           </div>

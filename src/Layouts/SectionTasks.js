@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, Navigate} from 'react-router-dom'
 
 import AllTasks from '../Pages/AllTasks'
 import Active from '../Pages/Active'
@@ -14,9 +14,10 @@ const SectionTasks = ({tasks, toggleCheckbox, deleteTask, tasksLength, clearComp
     return(
         <section className={theme === 'dark' ? "section-tasks" : "section-tasks light"}>
           <Routes>
-            <Route path="/" element={<AllTasks tasks={tasks} toggleCheckbox={toggleCheckbox} deleteTask={deleteTask} />}></Route>
-            <Route path="ActiveTasks" element={<Active tasks={tasks} toggleCheckbox={toggleCheckbox} deleteTask={deleteTask}/>}></Route>
-            <Route path="CompletedTasks" element={<Completed tasks={tasks} toggleCheckbox={toggleCheckbox} deleteTask={deleteTask}/>}></Route>
+            <Route path="/All" element={<AllTasks tasks={tasks} toggleCheckbox={toggleCheckbox} deleteTask={deleteTask} />}></Route>
+            <Route path="/ActiveTasks" element={<Active tasks={tasks} toggleCheckbox={toggleCheckbox} deleteTask={deleteTask}/>}></Route>
+            <Route path="/CompletedTasks" element={<Completed tasks={tasks} toggleCheckbox={toggleCheckbox} deleteTask={deleteTask}/>}></Route>
+            <Route path="*" element={<Navigate to="/All" replace />}></Route>
           </Routes>
           <div className={theme === 'dark' ? "section-tasks__tasks-info" : "section-tasks__tasks-info light"}>
             <p>{tasksLength} items left</p>
